@@ -2,12 +2,12 @@ var aws = require('aws-sdk');
 var lambda = new aws.Lambda({
   region: 'us-west-2' //change to your region
 });
+const cfnCR = require('cfn-custom-resource');
+
 
 module.exports = async event => {
   const ports = JSON.parse(process.env.STACKERY_PORTS);
   const functionName = ports[0][0].functionName
-    // console.dir(ports);
-    // console.log(functionName)
 
   lambda.invoke({
     FunctionName: functionName,
@@ -17,14 +17,13 @@ module.exports = async event => {
     console.dir(data)
     if (error) {
       console.log('lack of success')
-      return error
     }
     if (data.Payload) {
       console.log('success!')
-      return data.Payload
     } else {
-      return {}
+      console.log('data with no payload')
     }
+    return cfnCR.sendSuccess('seed', {}, event);
   })
 
 }
