@@ -1,0 +1,10 @@
+{
+  "Resources": {
+    "sender": {
+      "Type": "Custom::sender",
+      "Properties": {
+        "ServiceToken": { "Fn::GetAtt": [ "9c10cdfd", "Arn" ] }
+      }
+    }
+  }
+}
