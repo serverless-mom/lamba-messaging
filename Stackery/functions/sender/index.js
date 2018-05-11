@@ -11,7 +11,7 @@ module.exports = async event => {
 
   lambda.invoke({
     FunctionName: functionName,
-    Payload: JSON.stringify(event, null, 2) // pass params
+    Payload: JSON.stringify(event, null, 2)
   }, function(error, data) {
     console.log('raw data')
     console.dir(data)
