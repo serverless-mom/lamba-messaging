@@ -37,7 +37,9 @@
       "envVars": {},
       "entryPoint": "",
       "wires": [
-        []
+        [
+          "9bd1553e"
+        ]
       ]
     },
     {
@@ -48,6 +50,19 @@
       "width": 100,
       "height": 30,
       "name": ""
+    },
+    {
+      "id": "9bd1553e",
+      "type": "objectStore",
+      "x": 730,
+      "y": 415,
+      "width": 100,
+      "height": 30,
+      "publicPermissions": "none",
+      "websiteHosting": false,
+      "wires": [
+        []
+      ]
     }
   ]
 }
